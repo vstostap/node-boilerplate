@@ -26,6 +26,9 @@
   },
   "homepage": "https://github.com/vstostap/node-boilerplate#readme",
   "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-latest": "^6.24.1",
     "eslint": "^5.5.0",
     "eslint-plugin-es-beautifier": "^1.0.1"
   }
