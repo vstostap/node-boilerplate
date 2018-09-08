@@ -31,5 +31,8 @@
     "babel-preset-latest": "^6.24.1",
     "eslint": "^5.5.0",
     "eslint-plugin-es-beautifier": "^1.0.1"
+  },
+  "dependencies": {
+    "bunyan": "^1.8.12"
   }
 }
