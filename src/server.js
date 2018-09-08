@@ -2,8 +2,11 @@ import express from 'express';
 import http from 'http';
 import config from './config';
 import log from './logging';
+import api from './api';
+import db from './core/db';
 
 const app = express();
+app.use('/api', api);
 
 const init = async () => {
   const host = config.app.host;
