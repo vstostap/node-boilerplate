@@ -4,6 +4,12 @@
   "description": "A simple, highly scalable starter boilerplate for Node.js applications",
   "main": "index.js",
   "scripts": {
+    "build": "rm -rf build; babel src -d build --copy-files",
+    "start": "npm run-script build && node build/index.js",
+    "dev": "NODE_ENV='development' npm run-script start",
+    "prod": "NODE_ENV='production' npm run-script start",
+    "lint": "./node_modules/.bin/eslint -c ./.eslintrc.json src/**/*.js",
+    "beautify": "./node_modules/.bin/eslint --fix ./src/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
@@ -37,6 +43,7 @@
     "crypto": "^1.0.1",
     "express": "^4.16.3",
     "http": "0.0.0",
+    "joi": "^13.6.0",
     "mongoose": "^5.2.13"
   }
 }
