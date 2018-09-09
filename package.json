@@ -10,7 +10,8 @@
     "prod": "NODE_ENV='production' npm run-script start",
     "lint": "./node_modules/.bin/eslint -c ./.eslintrc.json src/**/*.js",
     "beautify": "./node_modules/.bin/eslint --fix ./src/**/*.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest ./src/**/*.js",
+    "coverage": "jest --collectCoverageFrom=./src/**/*.js --coverage src"
   },
   "engines": {
     "node": "8.11.3",
@@ -36,9 +37,11 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-latest": "^6.24.1",
     "eslint": "^5.5.0",
-    "eslint-plugin-es-beautifier": "^1.0.1"
+    "eslint-plugin-es-beautifier": "^1.0.1",
+    "jest": "^23.5.0"
   },
   "dependencies": {
+    "bluebird": "^3.5.2",
     "bunyan": "^1.8.12",
     "crypto": "^1.0.1",
     "express": "^4.16.3",
