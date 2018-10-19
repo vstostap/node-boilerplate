@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf build; babel src -d build --copy-files",
-    "start": "nodemon --exec babel-node src/index.js",
+    "start": "npm run build && nodemon --exec babel-node build/index.js",
     "dev": "NODE_ENV='development' npm run-script start",
     "prod": "NODE_ENV='production' npm run-script start",
     "lint": "./node_modules/.bin/eslint -c ./.eslintrc.json src/**/*.js",
