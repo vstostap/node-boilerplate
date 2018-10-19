@@ -29,7 +29,7 @@ const userSchema = new Schema({
     enum: statuses
   },
   createdAt: {
-    type: Date,
+    type   : Date,
     default: new Date()
   }
 });
