@@ -1,37 +1,40 @@
 {
     "env": {
-        "node": true,
-        "es6": true
+        "es6": true,
+        "node": true
     },
+    "extends": [
+        "eslint:recommended",
+        "plugin:es-beautifier/standard"
+    ],
     "plugins": [
         "es-beautifier"
     ],
-    "extends": [
-        "eslint:recommended", "plugin:es-beautifier/standard"
-    ],
     "rules": {
-        "no-console": 2,
+        "arrow-parens": [2, "as-needed"],
+        "comma-dangle": "off",
         "curly": 0,
-        "es-beautifier/multiline-object-properties": 0,
         "es-beautifier/multiline-array-elements": 0,
-        "no-unused-vars": [2, {"args": "none"}],
-        "arrow-parens": [2, "as-needed"],
+        "es-beautifier/multiline-object-properties": 0,
+        "indent": [2, 2, { "SwitchCase": 1 }],
         "key-spacing": [2, { "align": "colon" }],
-        "indent": [2,2,{"SwitchCase": 1}],
-        "padded-blocks": ["error", { "blocks": "never" }],
-        "arrow-parens": [2, "as-needed"],
-        "no-trailing-spaces": [2, {"skipBlankLines": true}],
         "linebreak-style": [
-            "error",
-            "unix"
+          "error",
+          "unix"
         ],
+        "no-console": 2,
+        "no-trailing-spaces": [2, { "skipBlankLines": true}],
+        "no-unused-vars": [2, { "args": "none" }],
+        "padded-blocks": ["error", { "blocks": "never" }],
+
         "quotes": [
-            "error",
-            "single"
+          "error",
+          "single"
         ],
         "semi": [
-            "error",
-            "always"
+          "error",
+          "always",
+          { "omitLastInOneLineBlock": true }
         ]
     }
 }
