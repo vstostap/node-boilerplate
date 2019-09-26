@@ -2,10 +2,12 @@
  * constants example, mappings
  */
 
-export const status = {
+const status = {
   UNVERIFIED: 0,
   ACTIVE    : 1,
   BLOCKED   : 2,
 };
 
-export const statuses = Object.values(status);
+const statuses = Object.values(status);
+
+module.exports = { status, statuses };

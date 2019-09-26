@@ -1,11 +1,20 @@
-import express from 'express';
-import http from 'http';
-import config from './config';
-import log from './logging';
-import api from './api';
-import initDb from './core/db';
+const express = require('express');
+const http = require('http');
+const bodyParser = require('body-parser');
+
+const config = require('./config');
+const log = require('./logging');
+const api = require('./api');
+const initDb = require('./core/db');
 
 const app = express();
+
+app.use(bodyParser.json({ limit: '50mb' }));
+app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
+  extended: true,
+  limit   : '50mb',
+}));
+
 app.use('/api', api);
 
 const init = async () => {

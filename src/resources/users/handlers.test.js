@@ -2,9 +2,9 @@
  * Imports
  */
 
-import Promise from 'bluebird';
+const Promise = require('bluebird');
 
-import { UsersHandler } from './handlers';
+const { UsersHandler } = require('./handlers');
 
 /**
  * Mocks

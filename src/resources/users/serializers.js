@@ -1,7 +1,7 @@
 /**
  * Imports
  */
-import Joi from 'joi';
+const Joi = require('joi');
 
 /**
  * Class containing schema details and serializer methods for User objects
@@ -30,4 +30,4 @@ class UserSerializer {
 /**
  * Exports
  */
-export { UserSerializer };
+module.exports = { UserSerializer };

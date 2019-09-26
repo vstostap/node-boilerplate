@@ -27,4 +27,4 @@ class BadRequest {
 /**
  * Exports
  */
-export { BadRequest };
+module.exports = { BadRequest };

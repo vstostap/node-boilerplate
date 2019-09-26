@@ -1,7 +1,7 @@
-import Bunyan from 'bunyan';
-import config from './config';
+const Bunyan = require('bunyan');
+const config = require('./config');
 
-export default Bunyan.createLogger({
+module.exports = Bunyan.createLogger({
   name   : config.logs.name,
   streams: config.logs.streams,
 });

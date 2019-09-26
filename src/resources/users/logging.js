@@ -1,2 +1,2 @@
-import logger from '../../logging';
-export default logger.child({ module: 'resources', resource: 'users' });
+const logger = require('../../logging');
+module.exports = logger.child({ module: 'resources', resource: 'users' });

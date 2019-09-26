@@ -1,13 +1,13 @@
 /**
  * Imports
  */
-import Joi from 'joi';
+const Joi = require('joi');
 
 // Data schemas
-import { UserSerializer } from './serializers';
+const { UserSerializer } = require('./serializers');
 
 // API endpoint handlers
-import { UsersHandler } from './handlers';
+const { UsersHandler } = require('./handlers');
 
 // Get users data
 const get = async (req, res) => {
@@ -15,7 +15,7 @@ const get = async (req, res) => {
   res.send(data);
 };
 
-export default {
+module.exports = {
   get,
 };
 

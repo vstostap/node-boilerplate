@@ -1,7 +1,7 @@
 /**
  * Imports
  */
-import crypto from 'crypto';
+const crypto = require('crypto');
 
 /**
  * Returns whether the given object contains a set of keys
@@ -61,7 +61,7 @@ function getRandomString(len) {
 /**
  * Exports
  */
-export {
+module.exports = {
   hasKeys,
   hasValue,
   getRandomString,

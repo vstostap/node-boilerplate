@@ -1,7 +1,7 @@
 /**
  * Imports
  */
-import { User } from './models';
+const { User } = require('./models');
 
 /**
  * API handler for Users collection endpoint
@@ -20,4 +20,4 @@ class UsersHandler {
 /**
  * Exports
  */
-export { UsersHandler };
+module.exports = { UsersHandler };

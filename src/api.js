@@ -1,7 +1,7 @@
-import express from 'express';
-import logger from './middleware/logger';
+const express = require('express');
+const logger = require('./middleware/logger');
 
-import usersRoutes from './resources/users/routes';
+const usersRoutes = require('./resources/users/routes');
 
 const router = express.Router();
 
@@ -14,4 +14,4 @@ router.get('/users', usersRoutes.get);
 // router.put('/users', usersRoutes.put);
 // router.delete('/users', usersRoutes.delete);
 
-export default router;
+module.exports = router;

@@ -4,8 +4,7 @@
   "description": "A simple, highly scalable starter boilerplate for Node.js applications",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf build; babel src -d build --copy-files",
-    "start": "npm run-script build && node build/index.js",
+    "start": "node index.js",
     "dev": "NODE_ENV='development' npm run-script start",
     "prod": "NODE_ENV='production' npm run-script start",
     "lint": "./node_modules/.bin/eslint -c ./.eslintrc.json src/**/*.js",
@@ -26,23 +25,19 @@
     "boilerplate",
     "starter-kit"
   ],
-  "author": "Ostap Vasiuta",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vstostap/node-boilerplate/issues"
   },
   "homepage": "https://github.com/vstostap/node-boilerplate#readme",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-latest": "^6.24.1",
     "eslint": "^5.5.0",
     "eslint-plugin-es-beautifier": "^1.0.1",
     "jest": "^23.5.0"
   },
   "dependencies": {
     "bluebird": "^3.5.2",
+    "body-parser": "^1.19.0",
     "bunyan": "^1.8.12",
     "crypto": "^1.0.1",
     "express": "^4.16.3",

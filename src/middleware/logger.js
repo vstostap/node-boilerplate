@@ -1,4 +1,4 @@
-import log from '../logging';
+const log = require('../logging');
 
 // log middleware
 const func = (req, res, next) => {
@@ -18,4 +18,4 @@ const func = (req, res, next) => {
  * Exports
  */
 
-export default func;
+module.exports = func;

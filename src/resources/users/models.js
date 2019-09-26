@@ -1,10 +1,10 @@
 /**
  * Imports
  */
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-import { statuses } from './constants';
+const { statuses } = require('./constants');
 
 /**
  * Data model schema example
@@ -37,4 +37,4 @@ const userSchema = new Schema({
 /**
  * Exports
  */
-export const User = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema);

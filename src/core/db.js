@@ -1,15 +1,20 @@
 /**
  * Imports
  */
-import Promise from 'bluebird';
+const Promise = require('bluebird');
 
-import config from '../config';
-import log from './logging';
+const config = require('../config');
+const log = require('./logging');
 
 /**
  * Import and initialize MongoDb connection
  */
 const mongoose = require('mongoose');
+
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
 
 const connectionString = `mongodb://${config.database.host}:${config.database.port}/${config.database.name}`;
 
@@ -25,7 +30,7 @@ mongoose.connection.on('disconnected', () => {
 });
 
 // init
-export default async () => {
+module.exports = async () => {
   try {
     await connect(connectionString);
     log.info('Connected to MongoDb successfully');

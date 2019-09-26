@@ -2,8 +2,9 @@
  * ENUM of custom Errors and Exceptions
  */
 const ErrorName = {
-  PERMISSION_DENIED: 'PermissionDenied',
-  VALIDATION_ERROR : 'ValidationError',
+  PERMISSION_DENIED : 'PermissionDenied',
+  VALIDATION_ERROR  : 'ValidationError',
+  AUTHORIZATON_ERROR: 'AuthorizationError',
 };
 
 /**
@@ -34,4 +35,4 @@ class PermissionDenied extends Error {
 /**
  * Exports
  */
-export { ErrorName, ValidationError, PermissionDenied };
+module.exports = { ErrorName, ValidationError, PermissionDenied };
