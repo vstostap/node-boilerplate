@@ -14,8 +14,8 @@
     "coverage": "jest --collectCoverageFrom=./src/**/*.js --coverage src"
   },
   "engines": {
-    "node": "8.11.3",
-    "npm": "5.6.0"
+    "node": "10.16.3",
+    "npm": "6.10.2"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/vstostap/node-boilerplate#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
     "babel-preset-latest": "^6.24.1",

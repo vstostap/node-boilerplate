@@ -3,7 +3,7 @@ import http from 'http';
 import config from './config';
 import log from './logging';
 import api from './api';
-import db from './core/db';
+import initDb from './core/db';
 
 const app = express();
 app.use('/api', api);
@@ -11,8 +11,14 @@ app.use('/api', api);
 const init = async () => {
   const host = config.app.host;
   const port = config.app.port;
-  await http.createServer(app).listen(port, host);
-  log.info(`The server is up and running at ${host}:${port}`);
+
+  try {
+    await initDb();
+    await http.createServer(app).listen(port, host);
+    log.info(`The server is up and running at ${host}:${port}`);
+  } catch (ex) {
+    log.error(ex);
+  }
 };
 
 process.on('unhandledRejection', err => {

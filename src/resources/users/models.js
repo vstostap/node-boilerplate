@@ -22,16 +22,16 @@ const userSchema = new Schema({
     trim     : true,
     lowercase: true,
     minlength: 5,
-    maxlength: 254
+    maxlength: 254,
   },
   status: {
     type: Number,
-    enum: statuses
+    enum: statuses,
   },
   createdAt: {
-    type: Date,
-    default: new Date()
-  }
+    type   : Date,
+    default: new Date(),
+  },
 });
 
 /**
