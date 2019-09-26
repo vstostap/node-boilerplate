@@ -1,6 +1,7 @@
 const express = require('express');
-const http = require('http');
+const spdy = require('spdy');
 const bodyParser = require('body-parser');
+const fs = require('fs');
 
 const config = require('./config');
 const log = require('./logging');
@@ -17,22 +18,42 @@ app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
 
 app.use('/api', api);
 
-const init = async () => {
-  const host = config.app.host;
-  const port = config.app.port;
-
-  try {
-    await initDb();
-    await http.createServer(app).listen(port, host);
-    log.info(`The server is up and running at ${host}:${port}`);
-  } catch (ex) {
-    log.error(ex);
-  }
+const options = {
+  protocols: ['h2'], // use http2
 };
+
+try {
+  const certsPath = '../config/certs';
+  options.key = fs.readFileSync(`${__dirname}/${certsPath}/server.key`);
+  options.cert = fs.readFileSync(`${__dirname}/${certsPath}/server.crt`);
+} catch (e) {
+  log.error(e);
+}
 
 process.on('unhandledRejection', err => {
   log.error(`An unhandled rejection has occured: ${err}`);
   process.exit(1);
 });
 
-init();
+// Initialize the server
+(async () => {
+  const host = config.app.host;
+  const port = config.app.port;
+
+  try {
+    await initDb();
+  } catch (ex) {
+    log.error(ex);
+  }
+
+  spdy
+    .createServer(options, app)
+    .listen(port, host, err => {
+      if (err) {
+        log.error(err);
+        return process.exit(1);
+      }
+
+      log.info(`The server is up and running at ${host}:${port}`);
+    });
+})();
